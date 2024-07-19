@@ -1,0 +1,386 @@
+---
+title: "Alexa_MLL_Biosynthesis_07172024"
+output: pdf_document
+date: "2024-07-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Set working drive
+
+```{r}
+setwd("C:/Users/marqu/OneDrive - University of Denver/Desktop/DU Research/06272024_Alexa_Mextorquens_all_sample_batch_pos_10min/box plots/blank_removal_features")
+```
+
+## Load in neccesary packages
+
+```{r}
+library(ggplot2)
+library(stringr)
+library(data.table)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(reshape)     
+library(gplots)
+library(pheatmap)
+library(heatmap3)
+library(magrittr) 
+library(tibble) 
+library(RColorBrewer)
+library(paletteer)
+library(clr)
+library(tidyverse) #used for data science. The eight core packages inside this library are: ggplot2 (data visualisation), dplyr (data manipulation), tidyr, readr, purrr, tibble, stringr, and forcats
+library(KODAMA) # to use the normalisation function
+library(ggrepel) #mainly used to repel overlapping text labels in ggplots
+library(vegan) #popular library for analysing ecological diversity and for multivariate analysis of community data. Here, we use it for PCoA
+library(svglite) #to save the plots in support vector graphics (svg) format
+library(factoextra) #for extracting and visualizing outputs of multivariate analyses such as PCA, k-means
+library(ggsci) #provides color palettes for ggplot2 that can be used for scientific journals
+library(matrixStats) #contains highly optimized functions to perform statistics on matrix data
+library(cowplot) #efficient functions to arrange several plots
+```
+
+## Load in Data
+
+### Normalized quant file
+
+```{r}
+quant <- read.csv("new_ft_Alexa_MLL_Mextorquens_07172024_with_blank_removal.csv", header=T, check.names=F)
+
+```
+
+### Metadata
+
+```{r}
+md <- read.csv("metadata_06272024_Alexa_Mextorquens.csv", header = T, check.names = F, sep = ',')
+```
+
+## Cleanup code
+
+### Transpose the quant table
+
+```{r}
+quant <- t(quant)
+quant <- as.data.frame(quant)
+
+new_colnames <- as.character(quant[1, ])
+quant <- quant[-1,]
+
+colnames(quant) <- new_colnames
+
+```
+
+```{r}
+numeric_columns <- sapply(quant, is.numeric)
+numeric_columns
+
+convert_to_numeric <- function(column) {
+  as.numeric(as.character(column))
+}
+
+# Apply the function to all columns
+quant <- quant %>% mutate_all(convert_to_numeric)
+```
+
+```{r}
+quant <- quant %>% tibble::rownames_to_column("filename")
+
+```
+
+### Merge feature table and metadata for plotting
+
+```{r}
+data_merge <- md %>% dplyr::select("filename", "ATTRIBUTE_Sample_Name") %>% 
+  left_join(quant, by = "filename")
+
+data_merge <- md %>% dplyr::select("filename", "ATTRIBUTE_Metal") %>% 
+  left_join(data_merge, by = "filename")
+```
+
+### Subset media blank and extraction blank
+
+```{r}
+data_merge <- data_merge %>% filter(ATTRIBUTE_Sample_Name != "Extraction_Blank")
+data_merge <- data_merge %>% filter(ATTRIBUTE_Sample_Name != "Media_Blank")
+
+```
+
+### Set level to plot
+
+```{r}
+data_merge$ATTRIBUTE_Sample_Name <- factor(data_merge$ATTRIBUTE_Sample_Name, levels = c("mxaF_NdCl3", "mxaF_4132_kan_NdCL3","mxaF_4133_kan_NdCL3","mxaF4134_NdCl3","mxaF_4135_NdCl3","mxaF_4136_NdCl3",
+"mxaF_4138_NdCl3","mxaF_4132_kan_Nd2O3", 
+                                                                                      "mxaF_4133_kan_Nd2O3", "mxaF4134_Nd2O3", 
+                                                                                      "mxaF4135_Nd2O3", "mxaF4136_Nd2O3", "mxaF_4138_clean_Nd2O3",
+                                                                                      "WT_4132_kan_Nd2O3", "WT_4133_kan_Nd2O3"))
+```
+
+```{r}
+new_labels <- c("mxaF_NdCl3" = "mxaF",
+                 "mxaF_4132_kan_NdCL3" = "mxaF/4132",
+                 "mxaF_4133_kan_NdCL3" = "mxaF/4133",
+                 "mxaF4134_NdCl3" = "mxaF/4134",
+                 "mxaF_4135_NdCl3" = "mxaF/4135",
+                 "mxaF_4136_NdCl3" = "mxaF/4136",
+                 "mxaF_4138_NdCl3" = "mxaF/4138",
+                 "mxaF_4132_kan_Nd2O3" = "mxaF/4132",
+                 "mxaF_4133_kan_Nd2O3" = "mxaF/4133",
+                 "mxaF4134_Nd2O3" = "mxaF/4134",
+                 "mxaF4135_Nd2O3" = "mxaF/4135",
+                 "mxaF4136_Nd2O3" = "mxaF/4136",
+                 "mxaF_4138_clean_Nd2O3" = "mxaF/4138",
+                 "WT_4132_kan_Nd2O3" = "WT/4132",
+                 "WT_4133_kan_Nd2O3" = "WT/4132")
+```
+
+## Plotting Methylolanthanin and analog plots with blank removal data
+
+### Methylolanthanin (+1) charge
+
+```{r}
+# Plot deferoxamine by ammonium acetate
+MLL_1_scatter_plot <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= MLL_28198_799.424_4.249)) +
+  geom_line(linetype = "dashed") +
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Normalized Peak Area (AU)", x= expression(paste("")))+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"))
+
+MLL_1_scatter_plot
+
+ggsave(file="MLL_Charge_1_scatter_plot.svg", plot=MLL_1_scatter_plot, width =9, height = 7 )
+
+```
+
+### Assymetric MLL (+1) charge
+
+```{r}
+Assym_MLL_1_scatter_plot <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= Assym_25841_815.419_3.964)) +
+  geom_line(linetype = "dashed") +
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Normalized Peak Area (AU)", x= expression(paste("")))+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"))
+
+Assym_MLL_1_scatter_plot
+
+ggsave(file="Assym_MLL_Charge_1_scatter_plot.svg", plot=Assym_MLL_1_scatter_plot, width =9, height = 7 )
+```
+
+### Rhodopetrobactin (+1) charge
+
+```{r}
+Rhodo_1_scatter_plot <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= Rh_24556_831.414_3.799)) +
+  geom_line(linetype = "dashed") +
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Normalized Peak Area (AU)", x= expression(paste("")))+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"))
+
+Rhodo_1_scatter_plot
+
+ggsave(file="Rhodo_Charge_1_scatter_plot.svg", plot=Rhodo_1_scatter_plot, width =9, height = 7 )
+```
+
+### Methylolanthanin (+2) charge
+
+```{r}
+MLL_2_intensity_scatter_plot <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= `28199_400.215_4.246`, shape= ATTRIBUTE_Metal)) +
+  geom_line(linetype = "dashed") +
+  scale_x_discrete(labels=new_labels)+
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Peak Intensity (AU)", x= expression(paste("")), shape ="")+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"),
+        legend.text=element_text(size=14,family="sans"))
+
+MLL_2_intensity_scatter_plot
+
+ggsave(file="MLL_Charge_2_intensity_blank_removal_scatter_plot.svg", plot=MLL_2_intensity_scatter_plot, width =9, height = 7 )
+```
+
+### Assym. Methylolanthanin (+2) charge
+
+```{r}
+Assym_MLL_2_intensity_scatter_plot <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= `25829_408.213_3.951`, shape= ATTRIBUTE_Metal)) +
+  geom_line(linetype = "dashed") +
+  scale_x_discrete(labels=new_labels)+
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Peak Intensity (AU)", x= expression(paste("")), shape ="")+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"),
+        legend.text=element_text(size=14,family="sans"))
+
+Assym_MLL_2_intensity_scatter_plot
+
+ggsave(file="Assym_MLL_Charge_2_intensity_blank_removal_scatter_plot.svg", plot=Assym_MLL_2_intensity_scatter_plot, width =9, height = 7 )
+```
+
+### Rhodopetrobactin (+2) charge
+
+```{r}
+Rhodo_2_intensity_scatter_plot <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= `24645_416.21_3.809`, shape= ATTRIBUTE_Metal)) +
+  geom_line(linetype = "dashed") +
+  scale_x_discrete(labels=new_labels)+
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Peak Intensity (AU)", x= expression(paste("")), shape ="")+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"),
+        legend.text=element_text(size=14,family="sans"))
+
+Rhodo_2_intensity_scatter_plot
+ggsave(file="Rhodo_Charge_2_intensity_blank_removed_scatter_plot.svg", plot=Rhodo_2_intensity_scatter_plot, width =9, height = 7 )
+```
+
+## Does 4135 KO have an effect on acylation of MLL for compound 8 or 12
+
+```{r}
+feature_7202_559mz <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= `7202_559.381_1.416`, shape= ATTRIBUTE_Metal)) +
+  geom_line(linetype = "dashed") +
+  scale_x_discrete(labels=new_labels)+
+   scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Peak Intensity (AU)", x= expression(paste("")), shape ="")+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"),
+        legend.text=element_text(size=14,family="sans"))
+
+feature_7202_559mz
+
+ggsave(file="feature_7202_559_intensity_blank_removal_mz.svg", plot=feature_7202_559mz, width =9, height = 7 )
+```
+
+```{r}
+feature_24132_559mz <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= f24132_559.381_3.753)) +
+  geom_line(linetype = "dashed") +
+  scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Normalized Peak Area (AU)", x= expression(paste("")))+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"))
+
+feature_24132_559mz
+
+ggsave(file="feature_24132_559mz.svg", plot=feature_24132_559mz, width =9, height = 7 )
+```
+
+## Compound 9 abundance across samples
+
+```{r}
+feature_23578_721mz <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= f23578_721.412_3.651)) +
+  geom_line(linetype = "dashed") +
+  scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Normalized Peak Area (AU)", x= expression(paste("")))+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"))
+
+feature_23578_721mz
+
+ggsave(file="feature_23578_721mz.svg", plot=feature_23578_721mz, width =9, height = 7 )
+```
+
+```{r}
+feature_23756_361mz <- data_merge %>%
+  tail(60) %>%
+  ggplot( aes(x= ATTRIBUTE_Sample_Name, y= f23756_361.21_3.661)) +
+  geom_line(linetype = "dashed") +
+  scale_y_log10()+
+  geom_point(size= 3) +
+  theme_classic() + 
+  labs(y= "Normalized Peak Area (AU)", x= expression(paste("")))+
+  theme(axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+        axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust =1), 
+        axis.text.y = element_text(family = "sans", size = 16, color= "black"),
+        axis.line=element_line(size =1),
+        axis.ticks=element_line(size=1), 
+        axis.ticks.length=unit(.25, "cm"))
+
+feature_23756_361mz
+
+ggsave(file="feature_23756_361mz.svg", plot=feature_23756_361mz, width =9, height = 7 )
+```
+
+## Compound 9 abundance across samples
