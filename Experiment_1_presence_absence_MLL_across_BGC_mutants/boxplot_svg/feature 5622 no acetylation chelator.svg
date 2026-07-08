@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 572.21 238.42">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #3a53a4;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        font-family: ArialMT, Arial;
+        isolation: isolate;
+      }
+
+      .cls-1, .cls-4 {
+        font-size: 10.26px;
+      }
+
+      .cls-3 {
+        font-size: 7.69px;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        fill: #010101;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-8 {
+        fill: #231f20;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 12.72px;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-11 {
+        fill: none;
+        stroke: #010101;
+        stroke-miterlimit: 10;
+        stroke-width: 1.33px;
+      }
+
+      .cls-12 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <image width="2400" height="1800" transform="translate(0 12.9) scale(.13)" xlink:href="../box_plot_MN/chloride only/plot_chloride5622.png"/>
+  <text class="cls-8" transform="translate(166.31 10.65)"><tspan x="0" y="0">NdCl</tspan></text>
+  <text class="cls-8" transform="translate(192.24 14.89) scale(.58)"><tspan x="0" y="0">3 </tspan></text>
+  <text class="cls-8" transform="translate(197.62 10.65)"><tspan class="cls-12" x="0" y="0">g</tspan><tspan class="cls-10" x="7.04" y="0">r</tspan><tspan class="cls-6" x="11.07" y="0">o</tspan><tspan x="17.96" y="0">wn samples</tspan></text>
+  <text class="cls-8" transform="translate(51.9 15.14)"><tspan x="0" y="0">A.</tspan></text>
+  <path class="cls-5" d="M401.94,55.63v-.71l12.79-7.38v.71l-12.79,7.38Z"/>
+  <path class="cls-5" d="M414.73,48.25v-.71l12.79,7.38v.71l-12.79-7.38Z"/>
+  <path class="cls-5" d="M427.52,55.63v-.71l12.79-7.38v.71l-12.79,7.38Z"/>
+  <text class="cls-4" transform="translate(449.39 59.28)"><tspan x="0" y="0">N</tspan></text>
+  <text class="cls-4" transform="translate(449.39 67.83)"><tspan x="0" y="0">H</tspan></text>
+  <text class="cls-3" transform="translate(456.8 70.09)"><tspan x="0" y="0">2</tspan></text>
+  <path class="cls-5" d="M440.31,48.25v-.71l7.96,4.6-.31.53-7.66-4.42Z"/>
+  <path class="cls-5" d="M458.21,52.68l-.31-.53,7.98-4.61v.71l-7.67,4.43Z"/>
+  <path class="cls-5" d="M465.89,48.25v-.71l12.79,7.38v.71l-12.79-7.38Z"/>
+  <path class="cls-5" d="M478.68,55.63v-.71l12.8-7.38v.71l-12.8,7.38Z"/>
+  <path class="cls-5" d="M491.48,48.25v-.71l12.79,7.38v.71l-12.79-7.38Z"/>
+  <text class="cls-4" transform="translate(513.36 43.34)"><tspan x="0" y="0">H</tspan></text>
+  <text class="cls-4" transform="translate(513.36 51.89)"><tspan x="0" y="0">N</tspan></text>
+  <path class="cls-5" d="M504.27,55.63v-.71l7.36-4.25.31.53-7.67,4.43Z"/>
+  <path class="cls-5" d="M522.14,51.18l.31-.53,7.7,4.45-.62.36-7.4-4.27Z"/>
+  <text class="cls-4" transform="translate(538.65 51.89)"><tspan x="0" y="0">O</tspan></text>
+  <path class="cls-5" d="M528.67,54.78l-.31-.53,8.71-5.03.31.53-8.71,5.03Z"/>
+  <path class="cls-5" d="M530,57.08l-.31-.53,8.71-5.03.31.53-8.71,5.03Z"/>
+  <path class="cls-5" d="M529.54,55.46l.62-.36v14.77l-.62.36v-14.77Z"/>
+  <path class="cls-5" d="M529.54,70.23l.62-.36,12.48,7.21v.36h-.62l-12.48-7.21Z"/>
+  <path class="cls-5" d="M542.95,77.61l-.31-.18v-.36l12.48-7.21.62.36-12.79,7.38Z"/>
+  <path class="cls-5" d="M542.33,77.97l.31-.53.31.18v14.41l-.62.36v-14.41Z"/>
+  <text class="cls-4" transform="translate(518.45 88.82)"><tspan x="0" y="0">HO</tspan></text>
+  <path class="cls-5" d="M542.02,77.43h.62l-.31.53-7.93,4.58-.31-.53,7.93-4.58Z"/>
+  <text class="cls-4" transform="translate(551.44 59.28)"><tspan x="0" y="0">OH</tspan></text>
+  <path class="cls-5" d="M555.74,70.23l-.62-.36v-8.86h.62v9.21Z"/>
+  <text class="cls-4" transform="translate(564.23 81.43)"><tspan x="0" y="0">O</tspan></text>
+  <path class="cls-5" d="M555.28,68.78l.31-.53,9.07,5.24-.31.53-9.07-5.24Z"/>
+  <path class="cls-5" d="M553.95,71.08l.31-.53,9.07,5.24-.31.53-9.07-5.24Z"/>
+  <path class="cls-5" d="M542.33,92.38l.62-.36,12.79,7.38-.62.36-12.79-7.38Z"/>
+  <text class="cls-4" transform="translate(564.23 96.2)"><tspan x="0" y="0">O</tspan></text>
+  <path class="cls-5" d="M554.25,99.09l-.31-.53,8.71-5.03.31.53-8.71,5.03Z"/>
+  <path class="cls-5" d="M555.58,101.39l-.31-.53,8.71-5.03.31.53-8.71,5.03Z"/>
+  <text class="cls-4" transform="translate(551.73 118.36)"><tspan x="0" y="0">NH</tspan></text>
+  <path class="cls-5" d="M555.12,99.76l.62-.36v10.08h-.62v-9.73Z"/>
+  <path class="cls-5" d="M550,117.14l.31.53-7.67,4.43v-.71l7.36-4.25Z"/>
+  <path class="cls-5" d="M542.64,121.39v.71l-12.79-7.38v-.71l12.79,7.39Z"/>
+  <path class="cls-5" d="M529.85,114v.71l-12.79,7.38v-.71l12.79-7.39Z"/>
+  <path class="cls-5" d="M517.06,121.39v.71l-12.79-7.38v-.71l12.79,7.39Z"/>
+  <text class="cls-4" transform="translate(487.78 125.74)"><tspan x="0" y="0">N</tspan></text>
+  <text class="cls-4" transform="translate(487.78 134.3)"><tspan x="0" y="0">H</tspan></text>
+  <path class="cls-5" d="M504.27,114v.71l-7.67,4.43-.31-.53,7.98-4.61Z"/>
+  <path class="cls-5" d="M486.65,118.6l-.31.53-7.67-4.42v-.71l7.97,4.6Z"/>
+  <path class="cls-5" d="M478.68,114v.71l-12.79,7.38v-.71l12.79-7.38Z"/>
+  <path class="cls-5" d="M465.89,121.39v.71l-12.79-7.38v-.71l12.79,7.39Z"/>
+  <path class="cls-5" d="M453.1,114v.71l-12.79,7.38v-.71l12.79-7.39Z"/>
+  <text class="cls-4" transform="translate(423.81 109.8)"><tspan x="0" y="0">H</tspan></text>
+  <text class="cls-4" transform="translate(423.81 118.36)"><tspan x="0" y="0">N</tspan></text>
+  <path class="cls-5" d="M440.31,121.39v.71l-7.7-4.45.31-.53,7.4,4.27Z"/>
+  <text class="cls-4" transform="translate(385.44 43.34)"><tspan x="0" y="0">H</tspan></text>
+  <text class="cls-4" transform="translate(385.44 51.89)"><tspan x="0" y="0">N</tspan></text>
+  <path class="cls-5" d="M401.94,54.92v.71l-7.7-4.45.31-.53,7.4,4.27Z"/>
+  <path class="cls-5" d="M383.71,50.67l.31.53-7.67,4.43v-.71l7.36-4.25Z"/>
+  <path class="cls-5" d="M376.36,54.92v.71l-12.79-7.38v-.36l.31-.18,12.48,7.21Z"/>
+  <text class="cls-4" transform="translate(372.37 74.05)"><tspan x="0" y="0">O</tspan></text>
+  <path class="cls-5" d="M377.38,54.51h.62v10.55h-.62v-10.55Z"/>
+  <path class="cls-5" d="M374.72,54.51h.62v10.55h-.62v-10.55Z"/>
+  <path class="cls-5" d="M422.08,117.14l.31.53-7.67,4.43v-.71l7.36-4.25Z"/>
+  <text class="cls-4" transform="translate(410.74 140.51)"><tspan x="0" y="0">O</tspan></text>
+  <path class="cls-5" d="M415.75,120.97h.62v10.55h-.62v-10.55Z"/>
+  <path class="cls-5" d="M413.09,120.97h.62v10.55h-.62v-10.55Z"/>
+  <path class="cls-5" d="M414.73,121.39v.71l-12.79-7.38v-.36l.31-.18,12.48,7.21Z"/>
+  <path class="cls-5" d="M402.24,114.18l-.31.18-.31-.18v-14.41l.62-.36v14.77Z"/>
+  <path class="cls-5" d="M399.59,112.82h-.62v-11.7h.62v11.7Z"/>
+  <path class="cls-5" d="M402.24,99.41l-.62.36-12.48-7.21v-.71l13.1,7.56Z"/>
+  <path class="cls-5" d="M389.15,91.85v.71l-12.48,7.21-.31-.18v-.35l12.79-7.38Z"/>
+  <path class="cls-5" d="M388.99,95.01l.31.53-10.13,5.85-.31-.53,10.13-5.85Z"/>
+  <path class="cls-5" d="M376.05,99.76l.31-.18.31.18v14.41l-.62.36v-14.77Z"/>
+  <path class="cls-5" d="M376.05,114.53l.62-.36,12.48,7.21v.71l-13.1-7.56Z"/>
+  <path class="cls-5" d="M378.86,113.09l.31-.53,10.13,5.85-.31.53-10.13-5.85Z"/>
+  <path class="cls-5" d="M389.15,122.1v-.71l12.48-7.21.31.18v.36l-12.79,7.38Z"/>
+  <path class="cls-5" d="M363.87,47.71l-.31.18-.31-.18v-14.41l.62-.36v14.77Z"/>
+  <path class="cls-5" d="M361.21,46.36h-.62v-11.7h.62v11.7Z"/>
+  <path class="cls-5" d="M363.87,32.94l-.62.36-12.48-7.21v-.71l13.1,7.56Z"/>
+  <path class="cls-5" d="M350.77,25.38v.71l-12.48,7.21-.31-.18v-.35l12.79-7.38Z"/>
+  <path class="cls-5" d="M350.62,28.54l.31.53-10.13,5.85-.31-.53,10.13-5.85Z"/>
+  <path class="cls-5" d="M337.68,33.3l.31-.18.31.18v14.41l-.62.36v-14.77Z"/>
+  <path class="cls-5" d="M337.68,48.07l.62-.36,12.48,7.21v.71l-13.1-7.56Z"/>
+  <path class="cls-5" d="M340.49,46.62l.31-.53,10.13,5.85-.31.53-10.13-5.85Z"/>
+  <path class="cls-5" d="M350.77,55.63v-.71l12.48-7.21.31.18v.36l-12.79,7.38Z"/>
+  <text class="cls-1" transform="translate(313.8 29.74)"><tspan x="0" y="0">HO</tspan></text>
+  <path class="cls-5" d="M337.98,32.77v.35l-.31.18-7.85-4.53.31-.53,7.85,4.53Z"/>
+  <text class="cls-1" transform="translate(352.17 96.2)"><tspan x="0" y="0">HO</tspan></text>
+  <path class="cls-2" d="M376.36,99.23v.35l-.31.18-7.85-4.53.31-.53,7.85,4.53Z"/>
+  <path class="cls-11" d="M449.43,45.34c0,2.03,1.65,3.68,3.68,3.68s3.68-1.65,3.68-3.68-1.65-3.68-3.68-3.68-3.68,1.65-3.68,3.68h0Z"/>
+  <path class="cls-5" d="M451.08,45.06h4.03v.51h-4.03v-.51Z"/>
+  <path class="cls-5" d="M453.35,43.3v4.03h-.51v-4.03h.51Z"/>
+  <text class="cls-4" transform="translate(403 162.72)"><tspan x="0" y="0">FeatureID:</tspan></text>
+  <text class="cls-4" transform="translate(454.3 162.72)"><tspan x="0" y="0">5622</tspan></text>
+  <text class="cls-4" transform="translate(365.42 177.23)"><tspan x="0" y="0">Chemical</tspan></text>
+  <text class="cls-4" transform="translate(411.02 177.23)"><tspan x="0" y="0">Formula:</tspan></text>
+  <text class="cls-4" transform="translate(454.34 177.23)"><tspan x="0" y="0">C</tspan></text>
+  <text class="cls-3" transform="translate(461.75 179.49)"><tspan x="0" y="0">36</tspan></text>
+  <text class="cls-4" transform="translate(470.3 177.23)"><tspan x="0" y="0">H</tspan></text>
+  <text class="cls-3" transform="translate(477.71 179.49)"><tspan x="0" y="0">55</tspan></text>
+  <text class="cls-4" transform="translate(486.27 177.23)"><tspan x="0" y="0">N</tspan></text>
+  <text class="cls-3" transform="translate(493.67 179.49)"><tspan x="0" y="0">6</tspan></text>
+  <text class="cls-4" transform="translate(497.95 177.23)"><tspan x="0" y="0">O</tspan></text>
+  <text class="cls-3" transform="translate(505.93 179.49)"><tspan x="0" y="0">9</tspan></text>
+  <text class="cls-3" transform="translate(510.21 173.23)"><tspan x="0" y="0">+</tspan></text>
+  <text class="cls-4" transform="translate(389.32 191.75)"><tspan x="0" y="0">Exact</tspan></text>
+  <text class="cls-4" transform="translate(417.82 191.75)"><tspan x="0" y="0">Mass:</tspan></text>
+  <text class="cls-4" transform="translate(448.03 191.75)"><tspan x="0" y="0">715.4025</tspan></text>
+  <text class="cls-8" transform="translate(314.63 12.9)"><tspan class="cls-7" x="0" y="0">B</tspan><tspan class="cls-9" x="6.73" y="0">.</tspan></text>
+</svg>
