@@ -1,0 +1,2 @@
+id,compound_name,adduct,score,precursor_mz,ion_mobility,ccs,rt,mol_formula,smiles,inchi,inchi_key,method,usi,entry_id,iupac_name,cas,internal_id,query_spectrum_usi
+10824,LPC 18:1,[M+H]+,0.720,522.3554160860909,,,,C26H52NO7P,,,,matchedlipid,,,,,,
