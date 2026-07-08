@@ -1,0 +1,559 @@
+---
+title: "boxplots of biosynthesis samples 09102025"
+output: html_document
+date: "2025-08-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("C:/Users/Marquis.Yazzie/OneDrive - University of Denver/Desktop/DU Research/10152025_metallophore_quant_rerun/box_plot_no_cleanup")
+```
+
+```{r}
+library(ggplot2)
+library(stringr)
+library(data.table)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(reshape)     
+library(gplots)
+library(pheatmap)
+library(heatmap3)
+library(magrittr) 
+library(tibble) 
+library(RColorBrewer)
+library(paletteer)
+library(clr)
+library(tidyverse) #used for data science. The eight core packages inside this library are: ggplot2 (data visualisation), dplyr (data manipulation), tidyr, readr, purrr, tibble, stringr, and forcats
+library(KODAMA) # to use the normalisation function
+library(ggrepel) #mainly used to repel overlapping text labels in ggplots
+library(vegan) #popular library for analysing ecological diversity and for multivariate analysis of community data. Here, we use it for PCoA
+library(svglite) #to save the plots in support vector graphics (svg) format
+library(factoextra) #for extracting and visualizing outputs of multivariate analyses such as PCA, k-means
+library(ggsci) #provides color palettes for ggplot2 that can be used for scientific journals
+library(matrixStats) #contains highly optimized functions to perform statistics on matrix data
+library(cowplot) #efficient functions to arrange several plots
+library(ggpubr)
+```
+
+
+```{r}
+ft <- read.csv("10162025_MLL_quant_rerun_iimn_gnps_quant.csv", header = T, check.names = F)
+md <- read.csv("gnps_metadata.csv", header = T, check.names = F)
+```
+
+```{r}
+quant <- t(ft)
+quant <- as.data.frame(quant)
+
+new_colnames <- as.character(quant[1, ])
+quant <- quant[-1,]
+
+colnames(quant) <- new_colnames
+
+quant <- quant[grep(".mzML", rownames(quant)), ]
+
+
+```
+
+```{r}
+numeric_columns <- sapply(quant, is.numeric)
+numeric_columns
+
+convert_to_numeric <- function(column) {
+  as.numeric(as.character(column))
+}
+
+# Apply the function to all columns
+quant <- quant %>% mutate_all(convert_to_numeric)
+```
+
+
+```{r}
+quant <- quant %>% tibble::rownames_to_column("filename")
+
+
+quant <- md %>% dplyr::select("filename", "Sample_group") %>% 
+  left_join(quant, by = "filename")
+
+quant <- md %>% dplyr::select("filename", "Acquisition_order") %>% 
+  left_join(quant, by = "filename")
+
+quant_blank <- quant %>%
+  filter(Sample_group %in% c("Method_blank", "Ext_Blank"))
+
+quant<- subset(quant, Sample_group != "Ext_Blank")
+
+quant<- subset(quant, Sample_group != "Method_blank")
+
+quant<- subset(quant, filename != "8Y_point1mg.mzML Peak area")
+
+```
+
+
+```{r}
+y_columns <- c(" 5394", " 4822")
+```
+
+```{r}
+quant_1 <- subset(quant, Sample_group != "PA1_+IPTG")
+quant_1 <- subset(quant_1, Sample_group != "PA1_-IPTG")
+quant_1 <- subset(quant_1, Sample_group != "5050")
+quant_1 <- subset(quant_1, Sample_group != "5051")
+```
+
+```{r}
+quant_1$Sample_group <- factor(
+  quant_1$Sample_group,
+  levels = c("mxaF", "mllF", "mllG", "mllJ")
+)
+```
+
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+
+  ggplot(quant_1, aes(x = Sample_group, y = .data[[y_var]])) +
+    geom_boxplot(
+      outlier.shape = NA,   # Hide boxplot outliers (shown by jitter instead)
+      width = 0.6
+    ) +
+    geom_jitter(
+      width = 0.15,         # Horizontal spread
+      size = 3,
+      alpha = 0.8
+    ) +
+    #scale_y_log10() +
+    theme_classic() +
+    labs(
+      y = paste("Peak area (AU) -", y_var),
+      x = ""
+    ) +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),
+      axis.text.x = element_text(family = "sans", size = 16, color = "black",
+                                 angle = 45, hjust = 1),
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(linewidth = 1),
+      axis.ticks = element_line(linewidth = 1),
+      axis.ticks.length = unit(0.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("plot__boxplot", y_columns[i], ".svg"), # name by column
+    plot     = plot_list[[i]],
+    width    = 6,
+    height   = 4,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+
+```
+
+
+
+```{r}
+quant_2 <- subset(quant, Sample_group != "PA1_+IPTG")
+quant_2 <- subset(quant_2, Sample_group != "PA1_-IPTG")
+quant_2 <- subset(quant_2, Sample_group != "mllF")
+quant_2 <- subset(quant_2, Sample_group != "mllG")
+quant_2 <- subset(quant_2, Sample_group != "mllJ")
+
+```
+
+
+```{r}
+quant_2$Sample_group <- factor(
+  quant_2$Sample_group,
+  levels = c("mxaF", "5050", "5051")
+)
+```
+
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+
+  ggplot(quant_2, aes(x = Sample_group, y = .data[[y_var]])) +
+    geom_boxplot(
+      outlier.shape = NA,   # Hide boxplot outliers (shown by jitter instead)
+      width = 0.6
+    ) +
+    geom_jitter(
+      width = 0.15,         # Horizontal spread
+      size = 3,
+      alpha = 0.8
+    ) +
+   # scale_y_log10() +
+    theme_classic() +
+    labs(
+      y = paste("Peak area (AU) -", y_var),
+      x = ""
+    ) +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),
+      axis.text.x = element_text(family = "sans", size = 16, color = "black",
+                                 angle = 45, hjust = 1),
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(linewidth = 1),
+      axis.ticks = element_line(linewidth = 1),
+      axis.ticks.length = unit(0.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("plot_5050_5051_boxplot", y_columns[i], ".svg"), # name by column
+    plot     = plot_list[[i]],
+    width    = 6,
+    height   = 4,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+
+```
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+  
+  ggplot(quant, aes(Sample_group, y = .data[[y_var]])) +
+    geom_point(size = 3) +
+  scale_y_log10()+
+  theme_classic() + 
+    labs(y = paste("Peak area (AU) -", y_var), x = "", shape = "") +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust = 1), 
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(size = 1),
+      axis.ticks = element_line(size = 1), 
+      axis.ticks.length = unit(.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )   
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("plot_", y_columns[i], ".png"), # name by column
+    plot     = plot_list[[i]],
+    width    = 8,
+    height   = 6,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+
+
+```
+
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+  
+  ggplot(quant, aes(Acquisition_order, y = .data[[y_var]])) +
+    geom_point(size = 3) +
+  scale_y_log10()+
+  theme_classic() + 
+    labs(y = paste("Peak area (AU) -", y_var), x = "", shape = "") +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust = 1), 
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(size = 1),
+      axis.ticks = element_line(size = 1), 
+      axis.ticks.length = unit(.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )   
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("_plot_by_acquisition", y_columns[i], ".png"), # name by column
+    plot     = plot_list[[i]],
+    width    = 8,
+    height   = 6,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+```
+
+```{r}
+
+
+```
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+  
+  ggplot(quant_blank, aes(Sample_group, y = .data[[y_var]])) +
+    geom_point(size = 3) +
+  scale_y_log10()+
+  theme_classic() + 
+    labs(y = paste("Peak area (AU) -", y_var), x = "", shape = "") +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust = 1), 
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(size = 1),
+      axis.ticks = element_line(size = 1), 
+      axis.ticks.length = unit(.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )   
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("blank_only_", y_columns[i], ".png"), # name by column
+    plot     = plot_list[[i]],
+    width    = 8,
+    height   = 6,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+```
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+  
+  ggplot(quant_blank, aes(Acquisition_order, y = .data[[y_var]])) +
+    geom_point(size = 3) +
+  scale_y_log10()+
+  theme_classic() + 
+    labs(y = paste("Peak area (AU) -", y_var), x = "", shape = "") +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust = 1), 
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(size = 1),
+      axis.ticks = element_line(size = 1), 
+      axis.ticks.length = unit(.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )   
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("blank_only_acquisition", y_columns[i], ".png"), # name by column
+    plot     = plot_list[[i]],
+    width    = 8,
+    height   = 6,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+```
+
+```{r}
+rhodo_blank <- quant_blank %>%
+  select(` 4822`, Acquisition_order)
+
+rhodo_blank <- rhodo_blank %>%
+  filter(Acquisition_order >= 1,
+         Acquisition_order <= 79)
+
+mean(rhodo_blank$` 4822`, na.rm = TRUE)
+
+sd(rhodo_blank$` 4822`, na.rm = TRUE)
+```
+```{r}
+quant_rhodo <-subset(quant, Sample_group != "PA1_-IPTG")
+
+quant_rhodo <-subset(quant_rhodo, Sample_group != "PA1_+IPTG")
+
+```
+
+```{r}
+rhodo_in_samples_ <- ggplot(quant_rhodo, aes(Sample_group, y = ` 4822`)) +
+  geom_point(size = 3) +
+  theme_classic() + 
+
+  # shaded SD band (2300 ± 700)
+  geom_rect(
+    xmin = -Inf, xmax = Inf,
+    ymin = 2054 - 773,
+    ymax = 2054 + 773,
+    fill = "grey70",
+    alpha = 0.05
+  ) +
+
+  # reference mean line
+  geom_hline(yintercept = 2054, color = "red", linewidth = 1) +
+  labs(
+    y = "Peak area (AU) - 4822",
+    x = "",
+    shape = ""
+  ) +
+  theme(
+    axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+    axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+    axis.text.x = element_text(
+      family = "sans",
+      size = 16,
+      color = "black",
+      angle = 45,
+      hjust = 1
+    ), 
+    axis.text.y = element_text(
+      family = "sans",
+      size = 16,
+      color = "black"
+    ),
+    axis.line = element_line(size = 1),
+    axis.ticks = element_line(size = 1), 
+    axis.ticks.length = unit(.25, "cm"),
+    legend.text = element_text(size = 14, family = "sans")
+  )
+
+ggsave(
+  filename = "rhodo_noPA1_OE.png",
+  plot = rhodo_in_samples_,
+  width = 8,
+  height = 6,
+  dpi = 300
+)
+
+```
+
+STATISTICS 
+```{r}
+library(FSA)
+library(dplyr)
+```
+
+```{r}
+library(FSA)
+
+results <- lapply(y_columns, function(y_var) {
+
+  # Kruskal-Wallis
+  kw <- kruskal.test(
+    as.formula(paste0("`", y_var, "` ~ Sample_group")),
+    data = quant_1
+  )
+
+  # Dunn's post hoc
+  dunn <- dunnTest(
+    as.formula(paste0("`", y_var, "` ~ Sample_group")),
+    data = quant_1,
+    method = "bh"
+  )
+
+  list(
+    feature = y_var,
+    kruskal_p = kw$p.value,
+    dunn = dunn$res
+  )
+})
+```
+
+```{r}
+kw_results <- data.frame(
+  Feature = sapply(results, `[[`, "feature"),
+  Kruskal_P = sapply(results, `[[`, "kruskal_p")
+)
+
+kw_results <- kw_results %>%
+  arrange(Kruskal_P)
+
+kw_results
+```
+```{r}
+dunn_results <- bind_rows(
+  lapply(results, function(x) {
+    x$dunn %>%
+      mutate(Feature = x$feature)
+  })
+)
+
+significant_dunn <- dunn_results %>%
+  filter(P.adj < 0.05)
+
+significant_dunn
+```
+
+```{r}
+results2 <- lapply(y_columns, function(y_var) {
+
+  # Kruskal-Wallis
+  kw <- kruskal.test(
+    as.formula(paste0("`", y_var, "` ~ Sample_group")),
+    data = quant_2
+  )
+
+  # Dunn's post hoc
+  dunn <- dunnTest(
+    as.formula(paste0("`", y_var, "` ~ Sample_group")),
+    data = quant_2,
+    method = "bh"
+  )
+
+  list(
+    feature = y_var,
+    kruskal_p = kw$p.value,
+    dunn = dunn$res
+  )
+})
+```
+
+```{r}
+kw_results2 <- data.frame(
+  Feature = sapply(results2, `[[`, "feature"),
+  Kruskal_P = sapply(results2, `[[`, "kruskal_p")
+)
+
+kw_results2 <- kw_results2 %>%
+  arrange(Kruskal_P)
+
+kw_results2
+```
+
+```{r}
+dunn_results2 <- bind_rows(
+  lapply(results2, function(x) {
+    x$dunn %>%
+      mutate(Feature = x$feature)
+  })
+)
+
+significant_dunn2 <- dunn_results2 %>%
+  filter(P.adj < 0.05)
+
+significant_dunn2
+```
+
+

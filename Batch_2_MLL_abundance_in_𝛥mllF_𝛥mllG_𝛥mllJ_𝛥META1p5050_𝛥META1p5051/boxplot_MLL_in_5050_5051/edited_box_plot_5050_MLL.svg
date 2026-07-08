@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 433.07 296.14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #010101;
+        isolation: isolate;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: ArialMT, Arial;
+        font-size: 16px;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4, .cls-6 {
+        stroke-width: 2.13px;
+      }
+
+      .cls-3, .cls-4, .cls-7, .cls-9 {
+        stroke: #333;
+      }
+
+      .cls-3, .cls-6, .cls-10, .cls-7, .cls-11 {
+        stroke-linejoin: round;
+      }
+
+      .cls-12 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-13, .cls-11, .cls-9 {
+        fill: #fff;
+      }
+
+      .cls-4, .cls-9, .cls-8 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-6 {
+        stroke: #010101;
+      }
+
+      .cls-14 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-15 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-10 {
+        fill: rgba(1, 1, 1, .8);
+        stroke: rgba(1, 1, 1, .8);
+        stroke-width: .71px;
+      }
+
+      .cls-10, .cls-11 {
+        stroke-linecap: round;
+      }
+
+      .cls-2, .cls-16 {
+        fill: #231f20;
+      }
+
+      .cls-7, .cls-11, .cls-9 {
+        stroke-width: 1.07px;
+      }
+
+      .cls-11 {
+        stroke: #fff;
+      }
+
+      .cls-17 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-16 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 12px;
+      }
+
+      .cls-8 {
+        stroke: #231f20;
+      }
+
+      .cls-18 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-19 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-5" x=".54" y="7.61" width="432" height="288"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-5" x="77.38" y="13.09" width="349.67" height="211.42"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="cls-5" x=".54" y=".61" width="432" height="295"/>
+    </clipPath>
+  </defs>
+  <g>
+    <rect class="cls-13" x=".54" y="7.61" width="432" height="288"/>
+    <g class="cls-19">
+      <rect class="cls-11" x=".54" y=".61" width="432" height="295"/>
+    </g>
+    <g class="cls-15">
+      <g>
+        <rect class="cls-13" x="77.38" y="13.09" width="349.67" height="211.42"/>
+        <line class="cls-7" x1="142.95" y1="194.22" x2="142.95" y2="178.97"/>
+        <line class="cls-7" x1="142.95" y1="210.47" x2="142.95" y2="214.87"/>
+        <polygon class="cls-9" points="110.16 194.22 110.16 210.47 175.73 210.47 175.73 194.22 110.16 194.22"/>
+        <line class="cls-4" x1="110.16" y1="204.16" x2="175.73" y2="204.16"/>
+        <line class="cls-7" x1="252.23" y1="79.05" x2="252.23" y2="22.7"/>
+        <line class="cls-7" x1="252.23" y1="161.54" x2="252.23" y2="163.58"/>
+        <polygon class="cls-9" points="219.45 79.05 219.45 161.54 285.01 161.54 285.01 79.05 219.45 79.05"/>
+        <line class="cls-4" x1="219.45" y1="129.35" x2="285.01" y2="129.35"/>
+        <line class="cls-7" x1="361.49" y1="174.23" x2="361.49" y2="173.7"/>
+        <polygon class="cls-9" points="328.71 174.23 328.71 180.84 394.27 180.84 394.27 174.23 328.71 174.23"/>
+        <line class="cls-4" x1="328.71" y1="175.19" x2="394.27" y2="175.19"/>
+        <circle class="cls-10" cx="241.73" cy="97.82" r="3.56"/>
+        <circle class="cls-10" cx="265.68" cy="22.76" r="3.56"/>
+        <circle class="cls-10" cx="264.49" cy="163.73" r="3.56"/>
+        <circle class="cls-10" cx="250.59" cy="161.01" r="3.56"/>
+        <circle class="cls-10" cx="356.62" cy="195.4" r="3.56"/>
+        <circle class="cls-10" cx="358.95" cy="175.92" r="3.56"/>
+        <circle class="cls-10" cx="365.33" cy="174.38" r="3.56"/>
+        <circle class="cls-10" cx="345.11" cy="173.69" r="3.56"/>
+        <circle class="cls-10" cx="142.67" cy="208.81" r="3.56"/>
+        <circle class="cls-10" cx="133.21" cy="178.97" r="3.56"/>
+        <circle class="cls-10" cx="156.32" cy="199.23" r="3.56"/>
+        <circle class="cls-10" cx="130.5" cy="214.9" r="3.56"/>
+      </g>
+    </g>
+    <g class="cls-18">
+      <g>
+        <line class="cls-6" x1="77.38" y1="224.51" x2="77.38" y2="13.09"/>
+        <text class="cls-1" transform="translate(23.62 190.66)"><tspan x="0" y="0">10000</tspan></text>
+        <text class="cls-1" transform="translate(23.62 131.08)"><tspan x="0" y="0">15000</tspan></text>
+        <text class="cls-1" transform="translate(23.62 71.49)"><tspan x="0" y="0">20000</tspan></text>
+        <line class="cls-3" x1="70.3" y1="184.94" x2="77.38" y2="184.94"/>
+        <line class="cls-3" x1="70.3" y1="125.35" x2="77.38" y2="125.35"/>
+        <line class="cls-3" x1="70.3" y1="65.76" x2="77.38" y2="65.76"/>
+        <line class="cls-6" x1="77.38" y1="224.51" x2="427.05" y2="224.51"/>
+        <line class="cls-3" x1="142.95" y1="231.6" x2="142.95" y2="224.51"/>
+        <line class="cls-3" x1="252.23" y1="231.6" x2="252.23" y2="224.51"/>
+        <line class="cls-3" x1="361.49" y1="231.6" x2="361.49" y2="224.51"/>
+      </g>
+    </g>
+  </g>
+  <line class="cls-8" x1="143.59" y1="10.18" x2="248.59" y2="10.18"/>
+  <line class="cls-8" x1="248.9" y1="15.18" x2="248.9" y2="10.18"/>
+  <line class="cls-8" x1="143.9" y1="15.04" x2="143.9" y2="10.04"/>
+  <text class="cls-16" transform="translate(193.6 10.04)"><tspan x="0" y="0">*</tspan></text>
+  <text class="cls-1" transform="translate(14.26 249.62) rotate(-90)"><tspan x="0" y="0">Peak</tspan><tspan class="cls-12" x="36.47" y="0"> </tspan><tspan x="40.66" y="0">area</tspan><tspan class="cls-17" x="72.69" y="0"> </tspan><tspan x="76.88" y="0">(AU)</tspan><tspan class="cls-17" x="109.76" y="0"> </tspan><tspan x="113.95" y="0">-</tspan><tspan class="cls-12" x="119.28" y="0"> </tspan><tspan x="123.47" y="0">Methylolanthanin</tspan></text>
+  <text class="cls-2" transform="translate(109.68 282.14) rotate(-45)"><tspan class="cls-14" x="0" y="0"> </tspan><tspan x="3.56" y="0">ΔmxaF</tspan></text>
+  <text class="cls-2" transform="translate(222.14 278.68) rotate(-45)"><tspan class="cls-14" x="0" y="0"> </tspan><tspan x="3.56" y="0">Δ5050</tspan></text>
+  <text class="cls-2" transform="translate(330.19 279.62) rotate(-45)"><tspan class="cls-14" x="0" y="0"> </tspan><tspan x="3.56" y="0">Δ5051</tspan></text>
+</svg>
