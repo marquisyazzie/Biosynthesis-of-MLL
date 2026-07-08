@@ -1,0 +1,116 @@
+filename,ATTRIBUTE_Technical_Replicate,ATTRIBUTE_Biological_Replicate,ATTRIBUTE_Batch,ATTRIBUTE_Sample_Name,ATTRIBUTE_Sample_Type,ATTRIBUTE_OD_600nm,ATTRIBUTE_Supernatant_vol_mL,ATTRIBUTE_Aquisition_order,ATTRIBUTE_Metal_Growing_Condition,ATTRIBUTE_Gene_KO,ATTRIBUTE_Methanol_Percentage,ATTRIBUTE_Organism
+ext_blank_1A_NdCl3_80.mzML,1,1,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+ext_blank_2A_NdCl3_80.mzML,1,2,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4132_1A_80MeOH_NdCL3.mzML,1,1,A,mxaF_4132_kan1_NdCL3,Sample,1.26,45,,2uM_NdCl3,mllA,80,Methylorubrum_Extorquens_AM1
+4132_2A_80MeOH_NdCL3.mzML,1,2,A,mxaF_4132_kan2_NdCL3,Sample,1.18,45,,2uM_NdCl3,mllA,80,Methylorubrum_Extorquens_AM1
+4132_3A_80MeOH_NdCL3.mzML,1,3,A,mxaF_4132_kan3_NdCL3,Sample,1.36,45,,2uM_NdCl3,mllA,80,Methylorubrum_Extorquens_AM1
+4132_4A_80MeOH_NdCL3.mzML,1,4,A,mxaF_4132_kan4_NdCL3,Sample,1.3,45,,2uM_NdCl3,mllA,80,Methylorubrum_Extorquens_AM1
+ext_blank_1A_NdCl3_80_2.mzML,2,1,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4133_1A_80MeOH_NdCl3.mzML,1,1,A,mxaF_4133_kan1_NdCL3,Sample,1.41,45,,2uM_NdCl3,mllBC,80,Methylorubrum_Extorquens_AM1
+4133_2A_80MeOH_NdCl3.mzML,1,2,A,mxaF_4133_kan2_NdCL3,Sample,1.25,45,,2uM_NdCl3,mllBC,80,Methylorubrum_Extorquens_AM1
+4133_3A_80MeOH_NdCl3_.mzML,1,3,A,mxaF_4133_kan3_NdCL3,Sample,1.32,45,,2uM_NdCl3,mllBC,80,Methylorubrum_Extorquens_AM1
+4133_4A_80MeOH_NdCl3_.mzML,1,4,A,mxaF_4133_kan4_NdCL3,Sample,1.43,45,,2uM_NdCl3,mllBC,80,Methylorubrum_Extorquens_AM1
+ext_blank_2A_NdCl3_80_2.mzML,2,2,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4134_1A_80MeOH_NdCl3.mzML,1,1,A,mxaF4134_1_NdCl3,Sample,0.91,45,,2uM_NdCl3,mllDE,80,Methylorubrum_Extorquens_AM1
+4134_2A_80MeOH_NdCl3.mzML,1,2,A,mxaF4134_2_NdCl3,Sample,0.92,45,,2uM_NdCl3,mllDE,80,Methylorubrum_Extorquens_AM1
+4134_3A_80MeOH_NdCl3.mzML,1,3,A,mxaF4134_3_NdCl3,Sample,1.25,45,,2uM_NdCl3,mllDE,80,Methylorubrum_Extorquens_AM1
+4134_4A_80MeOH_NdCl3.mzML,1,4,A,mxaF4134_4_NdCl3,Sample,1.36,45,,2uM_NdCl3,mllDE,80,Methylorubrum_Extorquens_AM1
+ext_blank_2A_NdCl3_80_3.mzML,3,2,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+ext_blank_1A_Nd2O3_80.mzML,1,1,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+ext_blank_2A_Nd2O3_80.mzML,1,2,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4134_1A_80MeOH_Nd2O3.mzML,1,1,A,mxaF4134_1_Nd2O3,Sample,1.08,45,,2uM_Nd2O3,mllDE,80,Methylorubrum_Extorquens_AM1
+4134_2A_80MeOH_Nd2O3.mzML,1,2,A,mxaF4134_2_Nd2O3,Sample,0.85,45,,2uM_Nd2O3,mllDE,80,Methylorubrum_Extorquens_AM1
+4134_3A_80MeOH_Nd2O3.mzML,1,3,A,mxaF4134_3_Nd2O3,Sample,0.9,45,,2uM_Nd2O3,mllDE,80,Methylorubrum_Extorquens_AM1
+4134_4A_80MeOH_Nd2O3.mzML,1,4,A,mxaF4134_4_Nd2O3,Sample,0.85,45,,2uM_Nd2O3,mllDE,80,Methylorubrum_Extorquens_AM1
+ext_blank_1A_Nd2O3_2.mzML,2,1,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4135_1A_80MeOH_Nd2O3.mzML,1,1,A,mxaF4135_1_Nd2O3,Sample,0.84,45,,2uM_Nd2O3,mllF,80,Methylorubrum_Extorquens_AM1
+4135_2A_80MeOH_Nd2O3.mzML,1,2,A,mxaF4135_2_Nd2O3,Sample,1.04,45,,2uM_Nd2O3,mllF,80,Methylorubrum_Extorquens_AM1
+4135_3A_80MeOH_Nd2O3.mzML,1,3,A,mxaF4135_3_Nd2O3,Sample,0.88,45,,2uM_Nd2O3,mllF,80,Methylorubrum_Extorquens_AM1
+4135_4A_80MeOH_Nd2O3.mzML,1,4,A,mxaF4135_4_Nd2O3,Sample,1.15,45,,2uM_Nd2O3,mllF,80,Methylorubrum_Extorquens_AM1
+ext_blank_2A_Nd2O3_80_2.mzML,2,2,A,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4136_1A_80MeOH_Nd2O3_dil.mzML,1,1,A,mxaF4136_1_Nd2O3,Sample,1.37,45,,2uM_Nd2O3,mllG,80,Methylorubrum_Extorquens_AM1
+4136_2A_80MeOH_Nd2O3_dil.mzML,1,2,A,mxaF4136_2_Nd2O3,Sample,1.43,45,,2uM_Nd2O3,mllG,80,Methylorubrum_Extorquens_AM1
+4136_3A_80MeOH_Nd2O3_dil.mzML,1,3,A,mxaF4136_3_Nd2O3,Sample,1.42,45,,2uM_Nd2O3,mllG,80,Methylorubrum_Extorquens_AM1
+4136_4A_80MeOH_Nd2O3_dil.mzML,1,4,A,mxaF4136_4_Nd2O3,Sample,1.38,45,,2uM_Nd2O3,mllG,80,Methylorubrum_Extorquens_AM1
+ext_blank_1B_1.mzML,1,1,B,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+HHM_Media_Blank_1B_1.mzML,1,1,B,Media_Blank,Media_Blank,0,0,,None,None,80,None
+HHM_Media_Blank_1B_2.mzML,2,1,B,Media_Blank,Media_Blank,0,0,,None,None,80,None
+4135_1B_80MeOH.mzML,1,1,B,mxaF_4135_NdCl3,Sample,1.03,45,,2uM_NdCl3,mllF,80,Methylorubrum_Extorquens_AM1
+4135_2B_80MeOH.mzML,1,2,B,mxaF_4135_NdCl3,Sample,1.1,45,,2uM_NdCl3,mllF,80,Methylorubrum_Extorquens_AM1
+4135_3B_80MeOH.mzML,1,3,B,mxaF_4135_NdCl3,Sample,1.04,45,,2uM_NdCl3,mllF,80,Methylorubrum_Extorquens_AM1
+4135_4B_80MeOH.mzML,1,4,B,mxaF_4135_NdCl3,Sample,0.91,45,,2uM_NdCl3,mllF,80,Methylorubrum_Extorquens_AM1
+ext_blank_1B_2.mzML,2,1,B,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4138_1B_80MeOH.mzML,1,1,B,mxaF_4138_NdCl3,Sample,1.08,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_2B_80MeOH.mzML,1,2,B,mxaF_4138_NdCl3,Sample,1.23,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_3B_80MeOH.mzML,1,3,B,mxaF_4138_NdCl3,Sample,0.99,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_4B_80MeOH.mzML,1,4,B,mxaF_4138_NdCl3,Sample,1.04,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+ext_blank_1B_3.mzML,3,1,B,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+mxaF_1B_80MeOH.mzML,1,1,B,mxaF_NdCl3,Sample,1.04,45,,2uM_NdCl3,mxaF,80,Methylorubrum_Extorquens_AM1
+mxaF_2B_80MeOH.mzML,1,2,B,mxaF_NdCl3,Sample,1.06,45,,2uM_NdCl3,mxaF,80,Methylorubrum_Extorquens_AM1
+mxaF_3B_80MeOH.mzML,1,3,B,mxaF_NdCl3,Sample,1.11,45,,2uM_NdCl3,mxaF,80,Methylorubrum_Extorquens_AM1
+mxaF_4B_80MeOH.mzML,1,4,B,mxaF_NdCl3,Sample,1.02,45,,2uM_NdCl3,mxaF,80,Methylorubrum_Extorquens_AM1
+ext_blank_1B_4.mzML,4,1,B,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+ext_blank_1C_1.mzML,1,1,C,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4136_1C_80MeOH.mzML,1,1,C,mxaF_4136_NdCl3,Sample,1.03,45,,2uM_NdCl3,mllG,80,Methylorubrum_Extorquens_AM1
+4136_2C_80MeOH.mzML,1,2,C,mxaF_4136_NdCl3,Sample,0.84,45,,2uM_NdCl3,mllG,80,Methylorubrum_Extorquens_AM1
+4136_3C_80MeOH.mzML,1,3,C,mxaF_4136_NdCl3,Sample,1.19,45,,2uM_NdCl3,mllG,80,Methylorubrum_Extorquens_AM1
+4136_4C_80MeOH.mzML,1,4,C,mxaF_4136_NdCl3,Sample,0.85,45,,2uM_NdCl3,mllG,80,Methylorubrum_Extorquens_AM1
+ext_blank_1C_2.mzML,2,1,C,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+blank_1D_1.mzML,1,1,D,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4132_S1_1D_80MeOH.mzML,1,1,D,mxaF_4132_kan_S1_Nd2O3,Sample,0.79,45,,1uM_Nd2O3,mllA,80,Methylorubrum_Extorquens_AM1
+4132_S2_2D_80MeOH.mzML,1,2,D,mxaF_4132_kan_S2_Nd2O3,Sample,0.85,45,,1uM_Nd2O3,mllA,80,Methylorubrum_Extorquens_AM1
+4132_S3_3D_80MeOH.mzML,1,3,D,mxaF_4132_kan_S3_Nd2O3,Sample,0.72,45,,1uM_Nd2O3,mllA,80,Methylorubrum_Extorquens_AM1
+blank_1D_2.mzML,2,1,D,Extraction_Blank,Extraction_Blank,0,0,,None,None,80,None
+4133_S4_1D_80MeOH.mzML,1,1,D,mxaF_4133_kan_S4_Nd2O3,Sample,0.63,45,,1uM_Nd2O3,mllBC,80,Methylorubrum_Extorquens_AM1
+4133_S5_2D_80MeOH.mzML,1,2,D,mxaF_4133_kan_S5_Nd2O3,Sample,0.55,45,,1uM_Nd2O3,mllBC,80,Methylorubrum_Extorquens_AM1
+4133_S6_3D_80MeOH.mzML,1,3,D,mxaF_4133_kan_S6_Nd2O3,Sample,0.44,45,,1uM_Nd2O3,mllBC,80,Methylorubrum_Extorquens_AM1
+4138_S7_1D_80MeOH_dil.mzML,1,1,D,mxaF_4138_clean_S7_Nd2O3,Sample,1.28,45,,1uM_Nd2O3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_S8_2D_80MeOH_dil.mzML,1,2,D,mxaF_4138_clean_S8_Nd2O3,Sample,1.33,45,,1uM_Nd2O3,mllJ,80,Methylorubrum_Extorquens_AM1
+4132_WT_S10_1D_80MeOH.mzML,1,1,D,WT_4132_kan_S10_Nd2O3,Sample,0.97,45,,1uM_Nd2O3,WT and 4132,80,Methylorubrum_Extorquens_AM1
+4132_WT_S11_2D_80MeOH.mzML,1,2,D,WT_4132_kan_S11_Nd2O3,Sample,0.72,45,,1uM_Nd2O3,WT and 4132,80,Methylorubrum_Extorquens_AM1
+4132_WT_S12_3D_80MeOH.mzML,1,3,D,WT_4132_kan_S12_Nd2O3,Sample,0.77,45,,1uM_Nd2O3,WT and 4132,80,Methylorubrum_Extorquens_AM1
+4133_WT_S13_1D_80MeOH.mzML,1,1,D,WT_4133_kan_S13_Nd2O3,Sample,0.97,45,,1uM_Nd2O3,WT and 4133,80,Methylorubrum_Extorquens_AM1
+4133_WT_S14_2D_80MeOH.mzML,1,2,D,WT_4133_kan_S14_Nd2O3,Sample,1.19,45,,1uM_Nd2O3,WT and 4133,80,Methylorubrum_Extorquens_AM1
+4133_WT_S15_3D_80MeOH.mzML,1,3,D,WT_4133_kan_S15_Nd2O3,Sample,0.65,45,,1uM_Nd2O3,WT and 4133,80,Methylorubrum_Extorquens_AM1
+4138_S16_1D_80MeOH_dil.mzML,1,1,D,mxaF_4138_clean_S16_Nd2O3,Sample,1.28,45,,1uM_Nd2O3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_S18_3D_80MeOH_dil.mzML,1,2,D,mxaF_4138_clean_S18_Nd2O3,Sample,1.34,45,,1uM_Nd2O3,mllJ,80,Methylorubrum_Extorquens_AM1
+4137_1E_80.mzML,1,1,E,mxaF_4137_NdCl3,Sample,0.8,45,,2uM_NdCl3,mllH,80,Methylorubrum_Extorquens_AM1
+4137_2E_80.mzML,1,2,E,mxaF_4137_NdCl3,Sample,0.84,45,,2uM_NdCl3,mllH,80,Methylorubrum_Extorquens_AM1
+4137_3E_80.mzML,1,3,E,mxaF_4137_NdCl3,Sample,0.8,45,,2uM_NdCl3,mllH,80,Methylorubrum_Extorquens_AM1
+4137_4E_80.mzML,1,4,E,mxaF_4137_NdCl3,Sample,0.75,45,,2uM_NdCl3,mllH,80,Methylorubrum_Extorquens_AM1
+4138_1E_80.mzML,1,1,E,mxaF_4138_NdCl3,Sample,0.62,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_2E_80.mzML,1,2,E,mxaF_4138_NdCl3,Sample,0.8,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_3E_80.mzML,1,3,E,mxaF_4138_NdCl3,Sample,0.7,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+4138_4E_80.mzML,1,4,E,mxaF_4138_NdCl3,Sample,0.72,45,,2uM_NdCl3,mllJ,80,Methylorubrum_Extorquens_AM1
+5051_pellet_80_1.mzML,1,1,F,5051_pellet,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_pellet_80_2.mzML,1,2,F,5051_pellet,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_pellet_80_3.mzML,1,3,F,5051_pellet,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_pellet_80_4.mzML,1,4,F,5051_pellet,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_super_80_1.mzML,1,1,F,5051_super,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_super_80_2.mzML,1,2,F,5051_super,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_super_80_3.mzML,1,3,F,5051_super,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+5051_super_80_4.mzML,1,4,F,5051_super,Sample,,45,,2uM_NdCl3,mxaF and 5051,80,Methylorubrum_Extorquens_AM1
+method_blk_1.mzML,1,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_10.mzML,10,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_11.mzML,11,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_12.mzML,12,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_13.mzML,13,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_14.mzML,14,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_15.mzML,15,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_16.mzML,16,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_17.mzML,17,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_18.mzML,18,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_19.mzML,19,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_2.mzML,2,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_20.mzML,20,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_3.mzML,3,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_4.mzML,4,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_5.mzML,5,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_6.mzML,6,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_7.mzML,7,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_8.mzML,8,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+method_blk_9.mzML,9,1,Z,Method_Blank,Method_Blank,0,0,,None,None,,
+instr_blank_1.mzML,1,1,Z,Instrument_Blank,Instrument_Blank,0,0,,None,None,,
+instr_blk4.mzML,4,1,Z,Instrument_Blank,Instrument_Blank,0,0,,None,None,,
+instr_blk_2.mzML,2,1,Z,Instrument_Blank,Instrument_Blank,0,0,,None,None,,
+instr_blk_3.mzML,3,1,Z,Instrument_Blank,Instrument_Blank,0,0,,None,None,,

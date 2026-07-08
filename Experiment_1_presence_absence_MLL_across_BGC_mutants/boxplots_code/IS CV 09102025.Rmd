@@ -1,0 +1,214 @@
+---
+title: "boxplots of biosynthesis samples 09102025"
+output: html_document
+date: "2025-08-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("C:/Users/Marquis.Yazzie/OneDrive - University of Denver/Desktop/DU Research/05082025_Alexa_biosynthesis_rerun/box_plot_MN")
+```
+
+```{r}
+library(ggplot2)
+library(stringr)
+library(data.table)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(reshape)     
+library(gplots)
+library(pheatmap)
+library(heatmap3)
+library(magrittr) 
+library(tibble) 
+library(RColorBrewer)
+library(paletteer)
+library(clr)
+library(tidyverse) #used for data science. The eight core packages inside this library are: ggplot2 (data visualisation), dplyr (data manipulation), tidyr, readr, purrr, tibble, stringr, and forcats
+library(KODAMA) # to use the normalisation function
+library(ggrepel) #mainly used to repel overlapping text labels in ggplots
+library(vegan) #popular library for analysing ecological diversity and for multivariate analysis of community data. Here, we use it for PCoA
+library(svglite) #to save the plots in support vector graphics (svg) format
+library(factoextra) #for extracting and visualizing outputs of multivariate analyses such as PCA, k-means
+library(ggsci) #provides color palettes for ggplot2 that can be used for scientific journals
+library(matrixStats) #contains highly optimized functions to perform statistics on matrix data
+library(cowplot) #efficient functions to arrange several plots
+library(ggpubr)
+```
+
+
+```{r}
+ft <- read.csv("09102025_Imputation_LOD228_CutOff_0.3_Used_0.3.csv", header = T, check.names = F)
+md <- read.csv("metadata_09092025_Alexa_Mextorquens.csv", header = T, check.names = F)
+list <- read.csv("features_in_manuscipt.csv", header = T, check.names = F)
+```
+
+```{r}
+
+new_ft <- data.frame(ft, header = T, check.names = F)
+
+rownames(new_ft) <- paste(new_ft$'featureID',round(new_ft$'mz',digits = 3),round(new_ft$'retention_time',digits = 3), sep = '_')
+
+#Picking only the files with column names containing 'mzML'
+new_ft <- new_ft[,grep('mzML',colnames(new_ft))]
+```
+
+```{r}
+md <- md[, colnames(md) != ""]
+
+
+
+```
+
+
+```{r}
+quant <- t(ft)
+quant <- as.data.frame(quant)
+
+new_colnames <- as.character(quant[1, ])
+quant <- quant[-1,]
+
+colnames(quant) <- new_colnames
+
+```
+
+```{r}
+numeric_columns <- sapply(quant, is.numeric)
+numeric_columns
+
+convert_to_numeric <- function(column) {
+  as.numeric(as.character(column))
+}
+
+# Apply the function to all columns
+quant <- quant %>% mutate_all(convert_to_numeric)
+```
+
+```{r}
+quant <- quant %>% tibble::rownames_to_column("filename")
+
+quant <- quant %>% filter(filename != "mz") %>% filter(filename != "retention_time")
+
+
+quant <- md %>% dplyr::select("filename", "ATTRIBUTE_Gene_KO") %>% 
+  left_join(quant, by = "filename")
+
+quant <- md %>% dplyr::select("filename", "ATTRIBUTE_Metal_Growing_Condition") %>% 
+  left_join(quant, by = "filename")
+
+quant <- md %>% dplyr::select("filename", "ATTRIBUTE_Sample_Name") %>% 
+  left_join(quant, by = "filename")
+
+quant<- subset(quant, ATTRIBUTE_Gene_KO != "None")
+
+quant<- subset(quant, ATTRIBUTE_Gene_KO != "WT and 4132")
+
+quant<- subset(quant, ATTRIBUTE_Gene_KO != "WT and 4133")
+
+quant<- subset(quant, ATTRIBUTE_Sample_Name != "5051_pellet")
+
+quant<- subset(quant, ATTRIBUTE_Gene_KO != "mxaF and 5051")
+
+```
+
+
+```{r}
+df_oxide <- quant %>% 
+  filter(ATTRIBUTE_Metal_Growing_Condition %in% c("2uM_Nd2O3", "1uM_Nd2O3"))
+
+df_chloride <- quant %>% 
+  filter(ATTRIBUTE_Metal_Growing_Condition == "2uM_NdCl3")
+```
+
+
+```{r}
+df_oxide$ATTRIBUTE_Gene_KO <- factor(df_oxide$ATTRIBUTE_Gene_KO, levels = c("mxaF", "mllA", "mllBC","mllDE","mllF","mllG","mllH", "mllJ"))
+
+df_chloride$ATTRIBUTE_Gene_KO <- factor(df_chloride$ATTRIBUTE_Gene_KO, levels = c("mxaF", "mllA", "mllBC","mllDE","mllF","mllG","mllH", "mllJ"))
+
+```
+
+
+```{r}
+y_columns <- as.character(list$featureID)
+
+```
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+  
+  ggplot(df_oxide, aes(ATTRIBUTE_Gene_KO, y = .data[[y_var]])) +
+    geom_point(size = 3) +
+  scale_y_log10()+
+  theme_classic() + 
+    labs(y = paste("Peak area (AU) -", y_var), x = "", shape = "") +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust = 1), 
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(size = 1),
+      axis.ticks = element_line(size = 1), 
+      axis.ticks.length = unit(.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )   
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("plot_oxide", y_columns[i], ".png"), # name by column
+    plot     = plot_list[[i]],
+    width    = 8,
+    height   = 6,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+
+
+```
+
+
+```{r}
+plot_list <- lapply(y_columns, function(y_var) {
+  
+  ggplot(df_chloride, aes(ATTRIBUTE_Gene_KO, y = .data[[y_var]])) +
+    geom_point(size = 3) +
+  scale_y_log10()+
+  theme_classic() + 
+    labs(y = paste("Peak area (AU) -", y_var), x = "", shape = "") +
+    theme(
+      axis.title.x = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.title.y = element_text(family = "sans", size = 16, hjust = 0.5),  
+      axis.text.x = element_text(family = "sans", size = 16, color = "black", angle = 45, hjust = 1), 
+      axis.text.y = element_text(family = "sans", size = 16, color = "black"),
+      axis.line = element_line(size = 1),
+      axis.ticks = element_line(size = 1), 
+      axis.ticks.length = unit(.25, "cm"),
+      legend.text = element_text(size = 14, family = "sans")
+    )   
+})
+
+# Save each plot with a unique filename
+for (i in seq_along(plot_list)) {
+  ggsave(
+    filename = paste0("plot_chloride", y_columns[i], ".png"), # name by column
+    plot     = plot_list[[i]],
+    width    = 8,
+    height   = 6,
+    dpi      = 300
+  )
+}
+
+# Print all plots
+plot_list
+
+
+```
